@@ -41,7 +41,7 @@ extern "C" {
  *
  * @param leds Pointer to GPIO port designated to leds.
  */
-void LedsInit(uint16_t * leds);
+void LEDS_Init(uint16_t * leds);
 
 /**
  * @brief funcion para encender un led

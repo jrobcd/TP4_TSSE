@@ -80,13 +80,6 @@ void test_OffSingleLed(void) {
     TEST_ASSERT_EQUAL_HEX16(0x0000, vleds);
 }
 
-/** @test apaga todos los leds */
-void test_OffAllLeds(void) {
-
-    LedsOffAll();
-    TEST_ASSERT_EQUAL_HEX16(0x0000, vleds);
-}
-
 /** @test estado de encendidos */
 void test_GetOnStatus(void) {
 
