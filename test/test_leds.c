@@ -32,27 +32,27 @@ static uint16_t vleds = 0xFFFF;
 
 /* === Private function declarations =========================================================== */
 
-void setUp(void){
+void setUp(void) {
 
     LEDS_Init(&vleds);
 }
 
-/** @test un solo led encendido */ 
-void test_OnSingleLed(void){
+/** @test un solo led encendido */
+void test_OnSingleLed(void) {
 
     SingleLedOn(4);
-    TEST_ASSERT_EQUAL_HEX16(0x0008,vleds);
+    TEST_ASSERT_EQUAL_HEX16(0x0008, vleds);
 }
 
-/** @test todos los leds encendidos */ 
-void test_OnAllLeds(void){
+/** @test todos los leds encendidos */
+void test_OnAllLeds(void) {
 
     LedsOnAll();
     TEST_ASSERT_EQUAL_HEX16(0xFFFF, vleds);
 }
 
-/** @test enciende y apaga les designados */ 
-void test_OnOffMultipleLeds(void){
+/** @test enciende y apaga les designados */
+void test_OnOffMultipleLeds(void) {
 
     SingleLedOn(2);
     SingleLedOn(6);
@@ -60,42 +60,35 @@ void test_OnOffMultipleLeds(void){
     SingleLedOff(2);
     SingleLedOff(8);
 
-    TEST_ASSERT_EQUAL_HEX16(0x0020,vleds);
+    TEST_ASSERT_EQUAL_HEX16(0x0020, vleds);
 }
 
-/** @test todos los leds apagados */ 
+/** @test todos los leds apagados */
 void test_OffAllLeds(void) {
 
     uint16_t vleds = 0xFFFF;
 
     LEDS_Init(&vleds);
-    TEST_ASSERT_EQUAL_HEX16(0x0000,vleds);
-}
-
-/** @test apaga un unico led */ 
-void test_OffSingleLed(void){
-
-    SingleLedOn(6);
-    SingleLedOff(6);
-    TEST_ASSERT_EQUAL_HEX16(0x0000,vleds);
-}
-
-/** @test apaga todos los leds */ 
-void test_OffAllLeds(void){
-
-    LedsOffAll();
     TEST_ASSERT_EQUAL_HEX16(0x0000, vleds);
 }
 
-/** @test estado de encendidos */ 
-void test_GetOnStatus(void){
+/** @test apaga un unico led */
+void test_OffSingleLed(void) {
+
+    SingleLedOn(6);
+    SingleLedOff(6);
+    TEST_ASSERT_EQUAL_HEX16(0x0000, vleds);
+}
+
+/** @test estado de encendidos */
+void test_GetOnStatus(void) {
 
     SingleLedOn(6);
     TEST_ASSERT_TRUE(isLedOn(6));
 }
 
-/** @test estado de apagados */ 
-void test_GetOnOffStatus(void){
+/** @test estado de apagados */
+void test_GetOnOffStatus(void) {
 
     SingleLedOn(6);
     SingleLedOff(6);

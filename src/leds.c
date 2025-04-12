@@ -45,37 +45,37 @@ static uint16_t * port;
 
 /* === Public function implementation ========================================================== */
 
-void  LEDS_Init(uint16_t *leds) {
+void LEDS_Init(uint16_t * leds) {
     port = leds;
     LedsOffAll();
 }
 
-static uint16_t LedToMask(uint8_t led){
+static uint16_t LedToMask(uint8_t led) {
 
-    return (LED_BIT_ON<<(led - LEDS_TO_BIT_OFFSET));
+    return (LED_BIT_ON << (led - LEDS_TO_BIT_OFFSET));
 }
 
-void SingleLedOn(uint8_t led){
+void SingleLedOn(uint8_t led) {
 
-    *port |= LedToMask(led); 
+    *port |= LedToMask(led);
 }
 
-void SingleLedOff(uint8_t led){
+void SingleLedOff(uint8_t led) {
 
-    *port  &= ~LedToMask(led); 
+    *port &= ~LedToMask(led);
 }
 
-void LedsOffAll(){
+void LedsOffAll() {
 
-    *port  = ALL_LEDS_OFF; 
+    *port = ALL_LEDS_OFF;
 }
 
-void LedsOnAll(){
+void LedsOnAll() {
 
-    *port  = ALL_LEDS_ON; 
+    *port = ALL_LEDS_ON;
 }
 
-bool isLedOn(uint8_t led){
+bool isLedOn(uint8_t led) {
 
     return (*port & LedToMask(led)) != 0;
 }

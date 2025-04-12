@@ -36,47 +36,45 @@ extern "C" {
 
 /* === Public function declarations ============================================================ */
 
-
 /**
  * @brief Initiates led
  *
  * @param leds Pointer to GPIO port designated to leds.
  */
-void LedsInit(uint16_t *leds);
-
+void LEDS_Init(uint16_t * leds);
 
 /**
  * @brief funcion para encender un led
- * 
+ *
  * @param led led elegido para encender
- * 
+ *
  */
 void SingleLedOn(uint8_t led);
 
 /**
  * @brief funcion para apagar un led
- * 
+ *
  * @param led led elegido para apagar
  */
 void SingleLedOff(uint8_t led);
 
 /**
  * @brief funcion para apagar todos los leds
- * 
+ *
  */
 void LedsOffAll();
 
 /**
  * @brief funcion para encender todos los leds
- * 
+ *
  */
 void LedsOnAll();
 
 /**
  * @brief funcion para revisar si encendido o apagado
- * 
+ *
  * @param led led elegido para revisarlo
- * 
+ *
  * @return true si esta encendido, false si esta apagado
  */
 bool isLedOn(uint8_t led);
